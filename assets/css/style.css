@@ -1,0 +1,26 @@
+html{
+    background-color: #81B29A;
+}
+
+#search-bar-wrapper{
+    color: white;
+
+}
+
+#search-box{
+    width: 90%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.gif{
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+}
+
+#search{
+    margin-left: 5px;
+
+}
