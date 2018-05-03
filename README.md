@@ -1,2 +1,2 @@
 # GIF App
-A simple app using the GIPHY API.
+A simple GIF search app using the GIPHY API.
