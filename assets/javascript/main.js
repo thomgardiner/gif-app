@@ -16,11 +16,25 @@ const call = function(t, n){
         console.log(response.data)
         for(i=0; i < response.data.length; i++){
         let url = response.data[i].images.downsized_still.url;
+        let container = $("<div>");
+        container.addClass("gif-container");
+        
         let element = $("<img>");
         element.attr("src", url);
+        element.attr("rating", response.data[i].rating);
+        element.attr("alt", response.data[i].rating);
         element.addClass("gif");
-        $("#gif-content").append(element);
         calledObjs.push(response.data[i]);
+        
+        let rating = $("<div>");
+        rating.text(response.data[i].rating);
+        rating.addClass("rating");
+        
+        container.append(element);
+        container.append(rating);
+
+
+        $("#gif-content").append(container);
     }
         offset += 10;
     }))

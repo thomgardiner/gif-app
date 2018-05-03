@@ -10,6 +10,10 @@ body{
     background-color: #81B29A;
 }
 
+/* #gif-content{
+    margin-left: 11%;
+} */
+
 #search-bar-wrapper{
     background-color: white;
     border-bottom-left-radius: 15px;
@@ -19,6 +23,7 @@ body{
 
 #gif-content{
     margin-top: 10px;
+    margin-left: 12%;
 }
 
 #search-box{
@@ -31,10 +36,34 @@ body{
     float: left;
     width: 200px;
     height: 200px;
-    margin: 5px;
-    box-shadow: 3px 3px 33px -8px rgb(54, 54, 54);
+    position: absolute;
+    z-index: 0;
 }
 
+.gif-container{
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin-left: 5px;
+    margin-top: 5px;
+    box-shadow: 3px 3px 33px -8px rgb(54, 54, 54);
+    position: relative;
+}
+
+.rating{
+    position: absolute;
+    bottom: 15px;
+    right: 5px;
+    z-index: 1;
+    color: white;
+    height: 10px;
+    width: 10px;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
 #search{
     margin-left: 5px;
 }
@@ -49,6 +78,7 @@ body{
 .button{
     height: 25px;
     width: 100px;
+    max-width: 100px;
     float: left;
     margin-left: 5px;
     border-radius: 15px;
