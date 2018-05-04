@@ -24,12 +24,16 @@ body{
 #gif-content{
     margin-top: 10px;
     margin-left: 12%;
+    max-width: 850px;
 }
-
 #search-box{
     width: 88%;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.pointer{
+    cursor: pointer;
 }
 
 .gif{
@@ -67,9 +71,18 @@ body{
 #search{
     margin-left: 5px;
 }
-#more{
+.more{
     margin-left: 5px;
 }
+
+#created-more{
+    margin-top: 15px;
+    margin-bottom: 5px;
+    width: 25px;
+    margin-left: 40%;
+    margin-right: 48%;
+}
+
 
 #button-wrapper{
     padding: 0px;
@@ -89,8 +102,6 @@ body{
     white-space: nowrap;
     overflow: hidden;
 }
-
-
 
 #button-wrapper{
     min-height: 50px;

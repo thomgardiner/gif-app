@@ -50,10 +50,11 @@ const clearSearch = function(){
 //takes searched term and create / append a new button for it
 const addButton = function(){
     let newButton = $("<div>");
-    newButton.addClass("button");
+    newButton.addClass("button pointer");
     newButton.attr("id", currentSearchTerm);
     newButton.text(currentSearchTerm);
     $("#button-wrapper").append(newButton);
+    
 }
 
 const clearArray = function(){
@@ -64,18 +65,38 @@ const clearOffset = function(){
     offset = 0;
 }
 
+const addMoreBtn = function(){
+    let button = $("<div>");
+    button.addClass("col-md-2 offset-md-5");
+    button.attr("id", "more-wrapper");
+    button.html('<img class="pointer more" id="created-more" src="assets/images/icons/plus.png">');
+    $('#content-wrapper').append(button);
+}
+
+const clearMoreBtn = function(){
+    $("#more-wrapper").remove();
+}
+
 $(document).ready(function() {
         //search on icon click
     $("#search").on("click", function(){
-        $("#gif-content").html("");
         clearOffset();
+        clearMoreBtn();
+        let temp = currentSearchTerm;
         search();
+        if(currentSearchTerm.length > 0){
+        $("#gif-content").html("");
         call(currentSearchTerm, amount);
         addButton();
+        addMoreBtn();
         clearSearch();
+        }
+        else{
+            currentSearchTerm = temp;
+        }
     })
         //add more gifs without clearing current
-    $("#more").on("click", function(){
+    $("body").on("click", '.more', function(){
         call(currentSearchTerm, amount);
     })
         
@@ -98,12 +119,33 @@ $(document).ready(function() {
     //logic for pinned/newly created search buttons
     $("body").on("click", ".button", function(){
         clearOffset();
-        $("#gif-content").html("");
+        clearMoreBtn();
+        addMoreBtn();
         current = this.innerHTML;
         currentSearchTerm = current;
+        $("#gif-content").html("");
         call(currentSearchTerm, amount);
         clearSearch();
 
     })
 
+    $('body').keypress(function(event){
+        let pressed = event.key;
+        if(pressed == "Enter"){
+            clearOffset();
+            clearMoreBtn();
+            let temp = currentSearchTerm;
+            search();
+            if(currentSearchTerm.length > 0){
+            $("#gif-content").html("");
+            call(currentSearchTerm, amount);
+            addButton();
+            addMoreBtn();
+            clearSearch();
+            }
+            else{
+                currentSearchTerm = temp;
+            }
+        }
+    })
 });
